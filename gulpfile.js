@@ -88,7 +88,7 @@ gulp.task('default', function(callback) {
     );
 });
 
-gulp.task('watch', ['browserSync', 'styleSheetsTasks','scriptsTask'], function() {
+gulp.task('watch', ['browserSync', 'styleSheetsTasks','scriptsTask','useref'], function() {
    
     gulp.watch(input + 'styles/**/*.css', ['styles']);
     gulp.watch(input + 'scss/**/*.scss', ['styles']);
