@@ -34,7 +34,7 @@ angular.module('crewLinkApp')
         };
         _.each([1, 2, 3], console.log);
 
-        var apiTrain = "/api/v1/gettraindetails";
+        var apiTrain = "http://localhost:4000/api/v1/gettraindetails";
 
         $scope.getTrainList = function () {
           $scope.isLoading = true;

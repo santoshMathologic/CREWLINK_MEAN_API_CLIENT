@@ -31,7 +31,7 @@ angular.module('crewLinkApp')
 
                 });
 
-            }
+            };
             $scope.getSalary();
 
              $scope.$watch('query', function (newValue, oldValue) {

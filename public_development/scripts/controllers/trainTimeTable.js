@@ -1,4 +1,4 @@
-'use strict';
+' use strict';
 
 angular.module('crewLinkApp')
   .controller('TrainTimeTableCtrl', function ($scope, $state, $http, $stateParams) {
@@ -24,7 +24,7 @@ angular.module('crewLinkApp')
 
     };
     //var apiTrainstn = "http://localhost:3000/api/v1/timetables"
-    var customUri = "http://localhost:3000/customRoutes/api/v1/trainstation"
+    var customUri = "http://localhost:4000/customRoutes/api/v1/trainstation"
 
     $scope.getStationList = function () {
       $http.get(customUri, { params: $scope.query })

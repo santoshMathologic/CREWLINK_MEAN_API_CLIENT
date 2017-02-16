@@ -7,7 +7,7 @@ angular.module('crewLinkApp')
 
 
     $scope.gettrainType = function () {
-      var typeuri = "http://localhost:3000/api/v1/trainTypes";
+      var typeuri = "http://localhost:4000/api/v1/trainTypes";
       $http.get(typeuri).then(function (response) {
 
         $scope.typeLists = response.data.results;
