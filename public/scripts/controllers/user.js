@@ -5,7 +5,7 @@ angular.module('crewLinkApp')
 
   $scope.getRole = function () {
                     $scope.roles = [];
-                    var apiRole = "http://localhost:3000/api/v1/roles"
+                    var apiRole = "http://localhost:4000/api/v1/roles";
                     $scope.query = {
                         sortBy: 'roleCode',
                         limit: 10,

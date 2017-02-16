@@ -11,20 +11,12 @@ angular.module('crewLinkApp')
             if ($scope.loginDetails.userName != "" && $scope.loginDetails.password != "") {
 
 
-                $http.post("/api/v1/login", {
+                $http.post("http://localhost:4000/api/v1/login", {
                     username: $scope.loginDetails.userName,
                     password: $scope.loginDetails.password
-                }).then(function (res) {
+                }).then(function successCallBack(res) {
 
-                    if (res.data.message) {
-                        toaster
-                            .pop({
-                                type: 'success',
-                                title: res.data.message,
-                                body: res.data.message
-                            });
-
-                    } else {
+                    if (res.data) {
                         $window.sessionStorage.token = res.data.token;
                         $window.sessionStorage.user = res.data.userObject[0].userName; // to fetch the user details on refresh
                         $window.sessionStorage.role = res.data.userObject[0].roleCode; // to fetch the user details on refresh
@@ -34,7 +26,7 @@ angular.module('crewLinkApp')
                     }
 
 
-                }, function (error) {
+                }, function errorCallBack(error) {
                     throw new Error("Error in Accessing Token" + error);
                 });
 
@@ -46,7 +38,7 @@ angular.module('crewLinkApp')
                     ['scripts/index.js'
                     ])
                     .then(function () {
-                        console.log("DASDA");
+                        console.log("OCZLAZYLOADING");
                     });
 
             }

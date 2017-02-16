@@ -1,4 +1,4 @@
-'use strict';
+' use strict';
 
 angular.module('crewLinkApp')
   .controller('salaryCtrl', function($scope, $state, $window, $location, $http) {
@@ -17,7 +17,7 @@ angular.module('crewLinkApp')
 
             $scope.getSalary = function () {
                 $scope.isLoading =true;
-                $http.get("/api/v1/salary", { params: $scope.query }).then(function (response) {
+                $http.get("http://localhost:4000/api/v1/salary", { params: $scope.query }).then(function successCallBack(response) {
                     $scope.salarieslist = response.data.results;
                     $scope.currentPage = response.data.current;
                     $scope.perPage = response.data.options.perPage;
@@ -26,10 +26,10 @@ angular.module('crewLinkApp')
                     $scope.isLoading = false;
 
 
-                }, function (error) {
+                }, function errorCallBack(error) {
 
 
-                })
+                });
 
             }
             $scope.getSalary();

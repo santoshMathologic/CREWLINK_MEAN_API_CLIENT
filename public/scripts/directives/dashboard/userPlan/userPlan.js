@@ -32,7 +32,7 @@ angular.module('crewLinkApp')
 
 
         $scope.getUserPlanList = function () {
-          $http.get("/api/v1/userPlans", { params: $scope.query })
+          $http.get("http://localhost:4000/api/v1/userPlans", { params: $scope.query })
             .then(function (response) {
               $scope.userPlanList = response.data.results;
 
