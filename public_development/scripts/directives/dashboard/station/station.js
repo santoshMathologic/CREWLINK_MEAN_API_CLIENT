@@ -12,7 +12,7 @@ angular.module('crewLinkApp')
 
         $scope.stationsList = [];   
 	      $scope.serverFetch = new ServerTableFetch(
-			  "/api/v1/stations",
+			  "http://localhost:4000/api/v1/stations",
 			  $http,	 
 			  function(beforeProcessingResponse){ // Before processing this is called
 				  

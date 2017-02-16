@@ -26,9 +26,9 @@
                 <!--ng-animate="{enter: 'fadeInUp animated', leave: 'fadeOutUp animated'}" 
                 !-->
                 <div class="panel-body">
-                    <table class="table table-striped table-condensed" st-pipe="serverFetch.processFunction" st-table="stationsList" id="stationTable">
+                    <table class="table table-striped table-condensed example-animate-container" st-pipe="serverFetch.processFunction" st-table="stationsList" id="stationTable">
                         <thead st-bind-model="{{refreshStation}}">
-                            <tr>
+                            <tr class="animate-repeat">
 
 
                                 <th st-sort="code" st-sort-ascent="st-sort-ascent" st-sort-descent="st-sort-descent">Code</th>

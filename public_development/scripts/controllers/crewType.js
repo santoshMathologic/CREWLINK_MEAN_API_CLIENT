@@ -1,4 +1,4 @@
-'use strict';
+' use strict';
 
 angular.module('crewLinkApp')
     .controller('crewTypeCtrl', function ($scope, $state, $window, $log, $q, $anchorScroll, $timeout, $location, $http, toaster) {
@@ -15,7 +15,7 @@ angular.module('crewLinkApp')
         };
       
         $scope.getCrewType = function () {
-            $http.get("/api/v1/crewTypes", { params: $scope.query })
+            $http.get("http://localhost:4000/api/v1/crewTypes", { params: $scope.query })
                 .then(function (response) {
                     $scope.crewTypeList = response.data.results;
                     $scope.currentPage = response.data.current;

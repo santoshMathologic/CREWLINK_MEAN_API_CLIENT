@@ -1,4 +1,4 @@
-'use strict';
+' use strict';
 
 angular.module('crewLinkApp')
   .controller('divisionCtrl', function ($scope, $state, $window, $location, $anchorScroll, $timeout, $http,toaster) {
@@ -17,7 +17,7 @@ angular.module('crewLinkApp')
     
 
     $scope.getdivision = function () {
-      $http.get("/api/v1/divisions", { params: $scope.query })
+      $http.get("http://localhost:4000/api/v1/divisions", { params: $scope.query })
         .then(function (response) {
           $scope.divisionList = response.data.results;
           $scope.currentPage = response.data.current;
