@@ -1,0 +1,235 @@
+<div>
+
+
+    <!--<button class="small ui circular icon button orange" tooltip-placement="right"
+		tooltip-popup-delay="300" id="togglebutton" ng-click="hideSidebar()">
+            <i class="glyphicon glyphicon glyphicon-chevron-left btn btn-primary animate-hide sidebar-toggle-button" aria-hidden="true"></i>
+    </button>
+    !-->
+    <button tooltip="{{tooltipMessage}}" tooltip-placement="right" tooltip-popup-delay="300" class="glyphicon glyphicon glyphicon-chevron-left btn btn-primary animate-hide sidebar-toggle-button"
+        id="togglebutton" type="button" ng-click="hideSidebar()"></button>
+
+        <div class="navbar-default sidebar animate-hide" ng-class="(hideSidebarVar)?'hide':''" id="toggleSideBar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav in" id="side-menu">
+                    <sidebar-search></sidebar-search>
+
+                    <li>
+                        <a ui-sref="dashboard.userPlan"><i class="fa fa-group fa-fw"></i> UserPlan</a>
+                    </li>
+
+
+                    <li>
+                        <a ui-sref="dashboard.home"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                    </li>
+
+                    <li>
+                        <a ui-sref="dashboard.upload"><i class="fa fa-upload fa-fw"></i> Upload</a>
+                    </li>
+
+                    <li>
+                        <a ui-sref="dashboard.crewType"><i class="fa fa-upload fa-fw"></i> CrewType</a>
+                    </li>
+
+                    <li>
+                        <a ui-sref="dashboard.train"><i class="fa fa-upload fa-fw"></i>Train</a>
+                    </li>
+
+                    <li>
+                        <a ui-sref="dashboard.trainType"><i class="fa fa-upload fa-fw"></i> Train Type</a>
+                    </li>
+
+
+
+
+
+
+                    <li ng-class="{active:collapseVar==6}">
+                        <a href="" ng-click="check(6)"><i class="fa fa-puzzle-piece fa-fw"></i>DrivingSection<span
+                        class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level" collapse="collapseVar!=6">
+                            <li ng-class="{active: selectedMenu=='blank'}">
+                                <a ui-sref="dashboard.listofDrivingSections"><i class="fa fa fa-puzzle-piece" aria-hidden="true"></i> List all DrivingSections</a>
+                            </li>
+                            <li>
+                                <a ui-sref="dashboard.drivingSection"> <i class="fa fa fa-puzzle-piece" aria-hidden="true"></i> Create Driving Section</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
+                    <li ng-class="{active:collapseVar==7}">
+                        <a href="" ng-click="check(7)"><i class="fa fa-dropbox fa-fw"></i>DrivingDuty<span
+                        class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level" collapse="collapseVar!=7">
+                            <li ng-class="{active: selectedMenu=='blank'}">
+                                <a ui-sref="dashboard.drivingDuty"><i class="fa fa-dropbox" aria-hidden="true"></i> List all DrivingDuties</a>
+                            </li>
+                            <li>
+                                <a ui-sref="dashboard.drivingDuty"> <i class="fa fa-dropbox" aria-hidden="true"></i> Create Driving Duties</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
+                    <li ng-class="{active:collapseVar==8}">
+                        <a href="" ng-click="check(8)"><i class="fa fa-road fa-fw"></i>RoundTrip<span
+                        class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level" collapse="collapseVar!=8">
+                            <li ng-class="{active: selectedMenu=='blank'}">
+                                <a ui-sref="dashboard.roundTrip"><i class="fa fa-train" aria-hidden="true"></i> List all RoundTrip</a>
+                            </li>
+                            <li>
+                                <a ui-sref="dashboard.drivingDuty"> <i class="fa fa-train" aria-hidden="true"></i>Create RoundTrip</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
+                    <li ng-class="{active:collapseVar==9}">
+                        <a href="" ng-click="check(9)"><i class="fa fa-university fa-fw"></i>CrewLink<span
+                        class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level" collapse="collapseVar!=9">
+                            <li ng-class="{active: selectedMenu=='blank'}">
+                                <a ui-sref="dashboard.roundTrip"><i class="fa fa-train" aria-hidden="true"></i> List all CrewLink</a>
+                            </li>
+                            <li>
+                                <a ui-sref="dashboard.drivingDuty"> <i class="fa fa-train" aria-hidden="true"></i>Create CrewLink</a>
+                            </li>
+                            <li>
+                                <a ui-sref="dashboard.drivingDuty"> <i class="fa fa-train" aria-hidden="true"></i>CrewLink Station Summary</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
+                    <li>
+                        <a ui-sref="dashboard.user"><i class="fa fa-group fa-fw"></i> Users</a>
+                    </li>
+
+
+
+
+                    <li>
+                        <a ui-sref="dashboard.station"><i class="fa fa-group fa-fw"></i> Station</a>
+                    </li>
+                    <li>
+                        <a ui-sref="dashboard.division"><i class="fa fa-dot-circle-o fa-fw"></i> Division</a>
+                    </li>
+
+
+
+
+
+
+
+
+                    <li>
+                        <a ui-sref="dashboard.chart"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span></span></a>
+                    </li>
+                    <li>
+                        <a ui-sref="dashboard.table"><i class="fa fa-table fa-fw"></i> Tables</a>
+                    </li>
+                    <li>
+                        <a ui-sref="dashboard.form"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                    </li>
+                    <li ng-class="{active: collapseVar==1}">{{dropDown}}
+                        <a href="" ng-click="check(1)"><i class="fa fa-wrench fa-fw"></i> UI Elements<span
+                        class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level" collapse="collapseVar!=1">
+                            <li>
+                                <a ui-sref="dashboard.panels-wells">Panels and Wells</a>
+                            </li>
+                            <li>
+                                <a ui-sref="dashboard.buttons">Buttons</a>
+                            </li>
+                            <li>
+                                <a ui-sref="dashboard.notifications">Notifications</a>
+                            </li>
+                            <li>
+                                <a ui-sref="dashboard.typography">Typography</a>
+                            </li>
+                            <li>
+                                <a ui-sref="dashboard.icons"> Icons</a>
+                            </li>
+                            <li>
+                                <a ui-sref="dashboard.grid">Grid</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li ng-class="{active: collapseVar==2}">
+                        <a href="" ng-click="check(2)"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span
+                        class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level" collapse="collapseVar!=2">
+                            <li>
+                                <a href="">Second Level Item</a>
+                            </li>
+                            <li>
+                                <a href="">Second Level Item</a>
+                            </li>
+                            <li ng-init="third=!third" ng-class="{active: multiCollapseVar==3}">
+                                <a href="" ng-click="multiCheck(3)">Third Level <span class="fa arrow"></span></a>
+                                <ul class="nav nav-third-level" collapse="multiCollapseVar!=3">
+                                    <li>
+                                        <a href="">Third Level Item</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Third Level Item</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Third Level Item</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Third Level Item</a>
+                                    </li>
+
+                                </ul>
+                                <!-- /.nav-third-level -->
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+                    <li ng-class="{active:collapseVar==4}">
+                        <a href="" ng-click="check(4)"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span
+                        class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level" collapse="collapseVar!=4">
+                            <li ng-class="{active: selectedMenu=='blank'}">
+                                <a ui-sref="dashboard.blank" ng-click="selectedMenu='blank'">Blank Page</a>
+                            </li>
+                            <li>
+                                <a ui-sref="login">Login Page</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
+                    <li ng-class="{active:collapseVar==10}">
+                        <a href="" ng-click="check(10)"><i class="fa fa-train fa-fw"></i>Salary<span
+                        class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level" collapse="collapseVar!=10">
+                            <li ng-class="{active: selectedMenu=='blank'}">
+                                <a ui-sref="dashboard.salary"><i class="fa fa-train fa-fw" aria-hidden="true"></i> List all Salaries</a>
+                            </li>
+                            <li>
+                                <a ui-sref="dashboard.createSalary"> <i class="fa fa-train fa-fw" aria-hidden="true"></i>Create Salary</a>
+                            </li>
+                        </ul>
+                        <!-- /.nav-second-level -->
+                    </li>
+
+                    <li>
+                        <a ui-sref="dashboard.crewblank"><i class="fa fa-group fa-fw"></i> Blank</a>
+                    </li>
+
+                    <li>
+                        <a ui-sref="dashboard.registration"><i class="fa fa-group fa-fw"></i> Registration</a>
+                    </li>
+
+
+
+                </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+</div>

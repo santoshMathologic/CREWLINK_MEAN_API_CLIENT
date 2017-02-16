@@ -1,0 +1,108 @@
+
+.custom-modal-class {
+        width: 90%!important; 
+    }
+    .custom-body-class{
+     background:grey;
+     font-family: 'Times New Roman', Times, serif;
+
+    }
+    .custom-header-class{
+     background: #800000;
+     font-family: 'Times New Roman', Times, serif;
+     color:#ffffff
+
+    }
+    .custom-footer-class{
+     background: #800000;
+     font-family: 'Times New Roman', Times, serif;
+
+    }
+
+@media screen and (min-width: 768px) {
+    .custom-modal-class {
+        width: 90%!important; 
+    }
+    .custom-body-class{
+     background:grey;
+     font-family: 'Times New Roman', Times, serif;
+
+    }
+    .custom-header-class{
+     background: #800000;
+     font-family: 'Times New Roman', Times, serif;
+     color:#ffffff
+
+    }
+    .custom-footer-class{
+     background: #800000;
+     font-family: 'Times New Roman', Times, serif;
+
+    }
+}
+
+
+.custom-modal1-class {
+        width: 100%!important;
+        
+    }
+    .custom-body1-class{
+     background:#ffffff;
+    
+    }
+     .custom-content1-class{
+     background:#ffffff;
+     height: auto!important;
+
+    }
+    .custom-header1-class{
+     background:green;
+     color:#ffffff
+
+    }
+     .custom-footer1-class{
+     background: green !important;
+    }
+@media screen and (min-width: 768px) {
+  .custom-modal1-class {
+        width: 100%!important;
+        
+    }
+    .custom-body1-class{
+     background:#ffffff;
+    
+    }
+     .custom-content1-class{
+     background:#ffffff;
+     height: auto!important;
+
+    }
+    .custom-header1-class{
+     background:green;
+     color:#ffffff
+
+    }
+     .custom-footer1-class{
+     background: green !important;
+    }
+   
+}
+
+ .custom-panel-class {
+        width: 100%!important; 
+    }
+@media screen and (max-width:480px){
+.custom-panel-class{
+ width:600px !important;
+
+}
+}
+ 
+    @media screen and (max-width:720px){
+   .custom-panel-class {
+        /*width: 80%!important; */ 
+    }
+
+}
+    
+  

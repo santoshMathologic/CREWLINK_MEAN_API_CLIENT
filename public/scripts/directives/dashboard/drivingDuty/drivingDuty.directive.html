@@ -1,0 +1,16 @@
+ 
+ <driving-duty></driving-duty>
+ <toaster-container toaster-options="{ 'time-out': 3000, 'close-button':true, 'position-class': 'toast-bottom-right'}"></toaster-container>
+ <div class="row">
+        <div class="col-lg-12">
+            <div class="custom-select-width300" custom-select="train as train.trainNo for train in searchTrain($searchTerm) | filter: { name: $searchTerm }"
+                ng-model="selectedTrain">
+                <div class="pull-left">
+                    <strong style="color:red">{{ train.train_No }} - {{ train.train_name }}</strong>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+
+    </div>

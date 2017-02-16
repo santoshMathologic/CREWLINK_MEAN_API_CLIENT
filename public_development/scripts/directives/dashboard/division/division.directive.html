@@ -1,0 +1,36 @@
+<division></division>
+<toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'position-class':'toast-bottom-right'}"></toaster-container>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">Create New Division </div>
+            <div class="panel-body">
+                <form role="form" name="divisionForm" ng-class="submitClass" novalidate ng-submit="divisionForm.$valid && saveDivision(divisionObj)">
+                    <div class="row">
+                        <div class="col-lg-12" id="divisionFormDiv">
+
+                            <div class="form-group">
+                                <label class="control-label">Name</label> <input type="type" name="divisionName" ng-required="true"
+                                    class="form-control" placeholder="Enter Your Division Name" ng-model="divisionObj.name">
+                                <span style="color: red" ng-show="(submitClass=='ng-submitted') || (submitClass!='hide-errors' && divisionForm.divisionName.$dirty && divisionForm.divisionName.$invalid)">
+						                <span ng-show="divisionForm.divisionName.$error.required">Name Required.</span>
+                                </span>
+                            </div>
+
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-md" ng-click="submitClass='ng-submitted'"><i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i>Save</button>
+                                <button type="button" class="btn btn-success btn-md" ng-click="reset()"><i class="fa fa-refresh fa-fw" aria-hidden="true"></i>Reset</button>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

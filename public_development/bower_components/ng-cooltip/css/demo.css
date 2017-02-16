@@ -1,0 +1,161 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:200,300,400,700);
+
+*, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+.clearfix:before, .clearfix:after { content: ''; display: table; }
+.clearfix:after { clear: both; }
+
+body, html, .container {
+	height: 100%;
+}
+
+body {
+	background: #fff;
+	color: #74777b;
+	font-weight: 500;
+	font-size: 1em;
+	font-family: 'Raleway', Arial, sans-serif;
+}
+
+a {
+	color: #2fa0ec;
+	text-decoration: none;
+	outline: none;
+}
+
+a:hover, a:focus {
+	color: #74777b;
+}
+
+.color-classic {
+	background: #464355;
+	color: #eee;
+}
+
+.color-box {
+	background: #434d55;
+	color: #eee;
+}
+
+.color-round {
+	background: #47c9af;
+	color: #fff;
+}
+
+.color-round a {
+	color: rgba(0,0,0,0.3);
+}
+
+.color-round a:hover,
+.color-round a:focus {
+	color: #fff;
+}
+
+.content {
+	padding: 0 1em;
+	margin: 0 auto;
+	text-align: center;
+}
+
+/* Header */
+.codrops-header {
+	padding: 1em 0 3em;
+	letter-spacing: -1px;
+}
+
+.codrops-header h1 {
+	font-weight: 800;
+	font-size: 4.5em;
+	line-height: 1;
+}
+
+.codrops-header h1 span {
+	display: block;
+	font-size: 50%;
+	font-weight: 200;
+	padding-top: 0.325em;
+	opacity: 0.6;
+}
+
+
+/* Codrops demo links */
+.codrops-demos {
+	margin: 0 auto;
+}
+
+.codrops-demos a {
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 0.25em 0;
+	margin: 5px 10px;
+	display: inline-block;
+	font-size: 0.85em;
+}
+
+.codrops-demos a.current-demo {
+	opacity: 0.5;
+}
+
+/* Dummy elements */
+.dummy {
+	text-align: left;
+	padding: 1em;
+	min-height: 300px;
+	margin: 0 auto;
+	font-weight: 300;
+}
+
+.dummy-text {
+	max-width: 1000px;
+	font-size: 1.65em;
+}
+
+.info {
+	margin: 0 auto;
+	text-align: center;
+	max-width: 600px;
+	font-size: 13px;
+	padding: 2em 0;
+}
+
+.dummy-text p {
+	margin-top: 0;
+	line-height: 1.8;
+	text-align: justify;
+}
+
+.dummy-text h3 {
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 1em;
+	margin: 2em 0 1em;
+}
+
+.dummy-menu {
+	max-width: 100%;
+	padding: 4em 1em;
+}
+
+.dummy-menu ul,
+.dummy-team ul {
+	list-style: none;
+	text-align: center;
+	padding: 0;
+	margin: 0 0 3em;
+}
+
+.dummy-menu ul li {
+	display: inline-block;
+	position: relative;
+	margin: 0 1em;
+	font-size: 1.5em;
+}
+
+.dummy-menu ul li a {
+	display: inline-block;
+	font-weight: 700;
+	padding: 0.15em 0.25em 0;
+	-webkit-transition: color 0.3s;
+	transition: color 0.3s;
+}

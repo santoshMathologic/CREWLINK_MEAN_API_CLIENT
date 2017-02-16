@@ -1,0 +1,73 @@
+<div class="container-fluid">
+
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Create Salary</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Salary
+
+                </div>
+                <div class="panel-body">
+                    <form role="form" name="salaryForm" novalidate ng-submit="salaryForm.$valid && saveSalary(salaryDetails,(salaryDetails)?'create':'update' )">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="control-label">EmployeeId</label>
+                                <input type="text" name="employeeId" class="form-control" placeholder="" ng-model="salaryDetails.employeeId">
+
+                                <span style="color: red" ng-show="(submitClass=='ng-submitted') || (submitClass!='hide-errors' && salaryForm.employeeId.$dirty && salaryForm.employeeId.$invalid)">
+							<span ng-show="salaryForm.employeeId.$error.required">Employee Id 
+								is required.</span>
+                                </span>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">EmployeeName</label>
+                                <input type="text" name="employeeName" class="form-control" placeholder="Enter Employee Name" ng-model="salaryDetails.employeeName">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">Designation</label>
+                                <input type="text" name="designation" class="form-control" placeholder="Enter You Designation" ng-model="salaryDetails.designation">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">Salary</label>
+                                <input type="text" name="salary" class="form-control" placeholder="Enter Your salary" ng-model="salaryDetails.salary">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label">Remarks</label>
+                                <textarea cols="15" rows="5" name="remarks" class="form-control" placeholder="Feedback" ng-model="salaryDetails.remarks"></textarea>
+                            </div>
+
+
+                            <button class="btn btn-md btn-primary" type="submit" ng-click="submitClass='ng-submitted'"> Save
+                                         <i class="fa fa-floppy-o fa-fw" aria-hidden="true"></i>
+                            </button>
+
+
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>

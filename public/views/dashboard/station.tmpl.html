@@ -1,0 +1,132 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Station
+            </h1>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">List Of Stations
+                    <div class="input-group pull-right">
+                        <div class="form-group">
+                            <label class="col-lg-8 control-label">Item Per Page(1-100)</label>
+                            <div class="col-lg-4">
+                                <input name="limit" class="input-sm form-control pull-right ng-pristine ng-valid ng-valid-number ng-valid-max ng-valid-min"
+                                    min="1" max="100" value="5" step="1" type="number" ng-model-options="{ debounce: 1000 }"
+                                    ng-model="query.limit">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--ng-animate="{enter: 'fadeInUp animated', leave: 'fadeOutUp animated'}" 
+                !-->
+                <div class="panel-body">
+                    <table class="table table-striped table-condensed" st-pipe="serverFetch.processFunction" st-table="stationsList" id="stationTable">
+                        <thead st-bind-model="{{refreshStation}}">
+                            <tr>
+
+
+                                <th st-sort="code" st-sort-ascent="st-sort-ascent" st-sort-descent="st-sort-descent">Code</th>
+                                <th st-sort="name">Name</th>
+                                <th>HQ SignOn(min)</th>
+                                <th>HQ Signoff(min)</th>
+                                <th>OS SignOn(min)</th>
+                                <th>OS SignOff(min)</th>
+                                <th>No of Beds</th>
+                                <th>Actions</th>
+
+
+
+                            </tr>
+                            <tr>
+
+
+                                <th><input type="text" st-ratio="90" class="form-control input-sm" st-search="code" placeholder="Code"
+                                        st-delay="1000" /></th>
+                                <th><input type="text" st-ratio="90" class="form-control input-sm" st-search="name" placeholder="name"
+                                        st-delay="1000" /></th>
+
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <!-- <th>&nbsp;</th> -->
+                            </tr>
+
+
+
+
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="station in stationsList" ng-animate="{enter: 'fadeInUp animated', leave: 'fadeOutUp animated'}">
+
+
+                                <td>{{station.code}}</td>
+                                <td>{{station.name}}</td>
+                                <td>{{station.head_station_sign_off_duration}}</td>
+                                <td>{{station.head_station_sign_on_duration}}</td>
+                                <td>{{station.out_station_sign_on_duration}}</td>
+                                <td>{{station.out_station_sign_off_duration}}</td>
+                                <td>{{station.number_of_beds}}</td>
+                                <td>
+                                    <div class="ui small icon buttons">
+
+
+
+                                        <button class="btn btn-primary btn-xs" title="share Plan" ng-click="removeStation(station)" title="Edit" ng-show="true" confirm="Are you sure to delete station '{{station.name}}' !!!"
+                                            confirm-settings="{size: 'md'}" confirm-header-class="confirm-header-danger " confirm-footer-class="confirm-footer-default"
+                                            confirm-ok-button-class="btn-danger" confirm-cancel-button-class="btn-default" confirm-title="Confirm Deletion!!"
+                                            confirm-ok="Yes" confirm-cancel="No" title="Remove">
+                                         <i class="fa fa-trash fa-fw" aria-hidden="true"></i>
+                                      </button>
+
+                                        <button class="btn btn-danger btn-xs" title="share Plan" ng-click="updateStation(station)" title="Edit" ng-show="true" confirm="Are you sure to delete station '{{station.name}}' !!!"
+                                            confirm-settings="{size: 'md'}" confirm-header-class="confirm-header-danger " confirm-footer-class="confirm-footer-default"
+                                            confirm-ok-button-class="btn-danger" confirm-cancel-button-class="btn-default" confirm-title="Confirm Deletion!!"
+                                            confirm-ok="Yes" confirm-cancel="No" title="Remove">
+                                         <i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
+                                      </button>
+
+
+
+
+
+                                    </div>
+
+
+
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td ng-show="!stationsList.length" colspan="8" class="text-center"> No records found...</td>
+                            </tr>
+                        </tbody>
+                        <tbody ng-show="isLoading">
+                            <tr>
+                                <td colspan="8" class="text-center"><i class="fa fa-spinner fa-4x fa-pulse"> </i> Loading stations...</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="8" class="text-center">
+                                    <div st-pagination="" st-template="scripts/directives/pagination/pagination.custom.html" st-items-by-page="10" st-displayed-pages="10"></div>
+                                </td>
+                            </tr>
+                        </tfoot>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">User
+            <div class="col-md-2 pull-right">
+                <button class="btn btn-primary btn-lg" ng-click="goToUserPlans()">Change User Plan</button>
+            </div>
+
+            </h1>
+            
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"> List of user
+                    <div class="input-group pull-right">
+                        <div class="form-group">
+                            <label class="col-lg-8 control-label">Item Per Page(1-100)</label>
+                            <div class="col-lg-4">
+                                <input name="limit" class="input-sm form-control pull-right ng-pristine ng-valid ng-valid-number ng-valid-max ng-valid-min"
+                                    min="1" max="100" value="5" step="1" type="number" ng-model-options="{ debounce: 1000 }"
+                                    ng-model="query.limit">
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="panel-body">
+                    <div style="color:red;margin-left:500px" ng-hide="usersList.length"> No Records Found </div>
+                    <table class="table table-hover table-condensed table-responsive">
+                        <thead>
+                            <tr>
+                                <th>SlNo</th>
+                                <th>UserName</th>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                                <th>email</th>
+                                <th>roleCode</th>
+                                <th>City</th>
+                                <th>MobileNo</th>
+                                <th>Address</th>
+                                <th>userActive</th>
+
+                                <th>Action</th>
+
+                            </tr>
+
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th><input type="text" ng-model-options="{ debounce: 1000 }" ng-model="query.userName" class="form-control input-sm"
+                                        placeholder="User Name" style="width:80px" /></th>
+
+                                <th><input type="text" ng-model-options="{ debounce: 1000 }" ng-model="query.firstName" class="form-control input-sm"
+                                        placeholder="First Name" style="width:80px" /></th>
+
+                                <th><input type="text" ng-model-options="{ debounce: 1000 }" ng-model="query.lastName" class="form-control input-sm"
+                                        placeholder="Last Name" style="width:80px" /></th>
+
+                                <th><input type="text" ng-model-options="{ debounce: 1000 }" ng-model="query.email" class="form-control input-sm"
+                                        placeholder="email" style="width:80px" /></th>
+                                <th><input type="text" ng-model-options="{ debounce: 1000 }" ng-model="query.roleCode" class="form-control input-sm"
+                                        placeholder="role" style="width:80px" /></th>
+                                <th><input type="text" ng-model-options="{ debounce: 1000 }" ng-model="query.city" class="form-control input-sm"
+                                        placeholder="city" style="width:80px" /></th>
+
+
+
+
+                                <th><input type="text" ng-model-options="{ debounce: 1000 }" ng-model="query.mobileNo" class="form-control input-sm"
+                                        placeholder="Mobile" style="width:80px" /></th>
+                                <th><input type="text" ng-model-options="{ debounce: 1000 }" ng-model="query.address" class="form-control input-sm"
+                                        placeholder="Address" style="width:80px" /></th>
+
+                                <th><select style="width:80px" class="form-control input-sm" ng-model="query.userActive">
+										<option value="" selected>All</option>
+										<option value="true">Only Active</option>
+										<option value="false">Ony InActive</option>
+								</select>
+                                </th>
+
+
+                            </tr>
+
+
+
+
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="user in usersList">
+                                <td>{{$index+1}}</td>
+                                <td>{{user.userName}}</td>
+                                <td>{{user.firstName}}</td>
+                                <td>{{user.lastName}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.roleCode}}</td>
+                                <td>{{user.city}}</td>
+                                <td>{{user.mobileNo}}</td>
+                                <td>{{user.address}}</td>
+                                <!-- <td ng-class="(user.userActive ? 'user_active' : 'user_deactive')">{{(user.userActive)?'yes':'No'}}</td> !-->
+                                <td>
+                                    <div ng-class="(user.userActive ? 'user_active' : 'user_deactive')">
+                                        {{(user.userActive) ? 'yes' : 'No' }}
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-xs btn-primary">
+                                         <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-xs btn-success">
+                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-xs btn-danger">
+                                         <i class="fa fa-info-circle" aria-hidden="true"></i>
+                                    </button>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>

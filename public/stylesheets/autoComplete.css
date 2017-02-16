@@ -1,0 +1,21 @@
+.highlight {
+	color: #ff0000;
+    text-shadow: 1px 1px 1px #ccc;
+    font-size: 15px;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+}
+.angucomplete-description {
+    font-size: 15px;
+    color: grey;
+}
+
+.custom_autoComplete{
+        border:1px solid green;
+        color:black;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+}

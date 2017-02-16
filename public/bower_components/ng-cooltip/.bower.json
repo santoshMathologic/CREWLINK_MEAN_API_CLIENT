@@ -1,0 +1,38 @@
+{
+  "name": "ng-cooltip",
+  "main": "ng-cooltip.js",
+  "homepage": "http://ndelvalle.github.io/ng-cooltip/#/classic",
+  "authors": [
+    "ndelvalle <nicolas.delvalle@gmail.com>"
+  ],
+  "description": "An angular module with a small collection of various hover tooltip",
+  "dependencies": {
+    "angular": "^1.4.9"
+  },
+  "resolutions": {
+    "angular": "~1.4.9"
+  },
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "tooltip",
+    "cooltip"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "tests"
+  ],
+  "version": "0.0.6",
+  "_release": "0.0.6",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.6",
+    "commit": "e56e59018b7cbe7d96eaab3cb56a76968715f2d6"
+  },
+  "_source": "https://github.com/ndelvalle/ng-tooltip.git",
+  "_target": "^0.0.6",
+  "_originalSource": "ng-cooltip"
+}

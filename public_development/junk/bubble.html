@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Page Title</title>
+    <script src="javascripts/angular.min.js"></script>
+    <script src="bubble.js"></script>
+</head>
+
+<body>
+
+
+    <div ng-app="crewLinkApp" ng-controller="personCtrl">
+        <h3>PersonList</h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Last</th>
+                    <th>Age</th>
+                    <th>address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="p in personList">
+                    <td>{{p.name}}</td>
+                    <td>{{p.last}}</td>
+                    <td>{{p.age}}</td>
+                    <td>{{p.address}}</td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</body>
+</html>

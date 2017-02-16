@@ -1,0 +1,79 @@
+<div class="container-fluid">
+
+	<div class="col-lg-12">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Crew Link Station Summary</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<h3>List of Crew Link Summary ( Based On Stations )</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">Crew Link Summary:
+						<div class="input-group pull-right">
+							<button type="button" class="btn btn-primary btn-xs  pull-right" ng-csv="getCSVDataRows(searchResult)" csv-header="getCSVHeaders(searchResult)"
+								filename="CrewLinkStation_summary.csv">Export List To CSV</button>
+						</div>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<div class="table">
+								<div class="table-row header green" ng-show="true">
+									<div class="cell">S.No.</div>
+									<div class="cell">Station</div>
+									<div class="cell">No. Of LP</div>
+									<div class="cell">No. Of RT</div>
+									<div class="cell">Total KK</div>
+									<div class="cell">Pilot KM</div>
+									<div class="cell">Driving KM</div>
+									<div class="cell">Duty Time</div>
+									<div class="cell">Duty/14D</div>
+									<div class="cell">OSR</div>
+									<div class="cell">OSR/14D</div>
+									<div class="cell">HQR</div>
+									<div class="cell">HQR/14D</div>
+									<div class="cell">Avg. HQR</div>
+								</div>
+
+								<div class="cell">
+									
+								</div>
+								<div class="cell">
+									<user-info numbers="santosh" maxwidth="50"></user-info>
+								</div>
+
+								<div class="table-row" ng-repeat="item in searchResult">
+									<div class="cell">{{$index+1}}</div>
+									<div class="cell">{{item.station}}</div>
+									<div class="cell">{{item.noofLp}}</div>
+									<div class="cell">{{item.NoofRT}}</div>
+									<div class="cell">{{item.totalKm}}</div>
+									<div class="cell">{{item.PilotKM}}</div>
+									<div class="cell">{{item.DrivingKM}}</div>
+									<div class="cell">{{item.DutyTime}}</div>
+									<div class="cell">{{item.Duty14D}}</div>
+									<div class="cell">{{item.OSR}}</div>
+									<div class="cell">{{item.OSR14D}}</div>
+									<div class="cell">{{item.HQR}}</div>
+									<div class="cell">{{item.HQR14D}}</div>
+									<div class="cell">{{item.AvgHQR}}</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'position-class':'toast-bottom-right'}"></toaster-container>
+
+	</div>
+
+
+
+</div>

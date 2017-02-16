@@ -1,0 +1,67 @@
+
+    <train-type></train-type>
+    <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'position-class':'toast-bottom-right'}"></toaster-container>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Create TrainType Or Update TrainTye</div>
+                <div class="panel-body">
+
+                    <div class="col-lg-10 col-lg-offset-1">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <h3>Create New Train Type</h3>
+                            </div>
+                            <div class="col-lg-3">
+                                <h3>
+                                    <button type="submit" class="btn btn-primary btn-sm" ng-show="(true)" ng-click="reset();">
+						<i class="fa fa-plus-circle"> Create New Train Type</i>
+					</button>
+
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-lg-12" id="trainTypeFormDiv">
+                        <form role="form" name="trainTypeForm" ng-class="submitClass" novalidate ng-submit="trainTypeForm.$valid && saveTrainType(traintypedetails)">
+                            <div class="col-lg-4 col-lg-offset-1">
+                                <div class="form-group input-group-sm">
+                                    <label class="control-label">Train Type Name </label> <input type="text" name="trainTypename"
+                                        ng-required="true" class="form-control" placeholder="Enter Train Type Name" ng-model="traintypedetails.name">
+                                    <span style="color: red" ng-show="(submitClass=='ng-submitted') || (submitClass!='hide-errors' && trainTypeForm.trainTypename.$dirty && trainTypeForm.trainTypename.$invalid)">
+						<span ng-show="trainTypeForm.trainTypename.$error.required">Train Type Name
+							is required.</span>
+                                    </span>
+                                </div>
+                                <button type="submit" class="btn btn-success" ng-click="submitClass='ng-submitted'">
+					<i class="fa fa-save"></i>
+					{{(true)?'Create':'Update'}} TrainType
+				</button>
+                                <button type="button" class="btn btn-primary" ng-click="reset();">
+					<i class="fa fa-undo"></i> Reset
+				</button>
+
+                            </div>
+
+
+                        </form>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

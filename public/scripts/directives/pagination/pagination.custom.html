@@ -1,0 +1,14 @@
+<ul class="pagination" style="cursor:pointer">
+    <li><a ng-click="(currentPage!=1)?selectPage(1):null">First</a>
+    </li>
+    <li><a ng-click="(currentPage!=currentPage - 1)?selectPage(currentPage - 1):null">&lt;</a>
+    </li>
+    <li>
+        <a>
+            <input type="text" ng-model="inputPage" ng-change="selectPage(inputPage)"> of {{totalPages}}
+        </a>
+    </li>
+    <li><a ng-click="(currentPage!=currentPage + 1)?selectPage(currentPage + 1):null">&gt;</a>
+    </li>
+    <li><a ng-click="(currentPage!=totalPages)?selectPage(totalPages):null">Last</a></li>
+</ul>

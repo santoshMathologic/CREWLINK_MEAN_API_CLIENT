@@ -1,0 +1,207 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Train</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Train List
+                    <div class="input-group pull-right">
+                        <div class="form-group">
+                            <label class="col-lg-8 control-label">Item Per Page(1-100)</label>
+                            <div class="col-lg-4">
+                                <input name="limit" style="margin-top: -6px" class="input-sm form-control pull-right ng-pristine ng-valid ng-valid-number ng-valid-max ng-valid-min"
+                                    min="1" max="100" value="5" step="1" type="number" ng-model-options="{ debounce: 1000 }"
+                                    ng-model="query.limit">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="panel-body">
+                    <div style="color:red;margin-left:500px" ng-hide="trainsList.length"> No Records Found </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Details</th>
+                                    <th>S.No.</th>
+                                    <th>Train No</th>
+                                    <th>Train Name</th>
+                                    <th>No of Days</th>
+                                    <th>Originating days</th>
+                                    <th>Train Type </th>
+                                    <th>Source</th>
+                                    <th>Destination</th>
+                                    <th>Has Driving Section</th>
+                                    <th>Is User Selected</th>
+                                    <th style="width:100px">Action</th>
+
+
+                                </tr>
+
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th><input type="text" table-width="30" class="form-control input-sm" placeholder="Train No"
+                                            ng-model-options="{ debounce: 1000 }" ng-model="query.train_No" /></th>
+                                    <th><input type="text" table-width="30" class="form-control input-sm" placeholder="Train Name"
+                                            ng-model-options="{ debounce: 1000 }" ng-model="query.train_name" /></th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>
+
+
+                                        <select ng-model="dummy" class="form-control input-sm" style="width:70px">
+                       					 <option value="">
+                           					All
+                       					 </option>
+                        						<option ng-repeat="item in typeLists" value="{{ item.name}}">
+                           						 {{ item.name | uppercase }}
+                        						</option>
+                                  </select>
+
+
+                                    </th>
+                                    <th><input type="text" class="form-control input-sm" placeholder="From Station" />
+                                        <input type="text" class="form-control input-sm" placeholder="Passing Station 1" /></th>
+                                    <th><input type="text" class="form-control input-sm" placeholder="To Station" />
+                                        <input type="text" class="form-control input-sm" placeholder="Passing Station 2" /></th>
+                                    <th><select class="form-control input-sm">
+                       					 <option value="">
+                           					All
+                       					 </option>
+                       					 <option value="false" selected>
+                           					No Driving Section
+                       					 </option>
+                       					 <option value="true">
+                           					With Driving Section
+                       					 </option>
+                                  </select></th>
+                                    <th><select class="form-control input-sm" ng-model="selectedValue">
+                       					 <option value="" selected>
+                           					All
+                       					 </option>
+                       					 <option value="false">
+                           					Not Selected By User
+                       					 </option>
+                       					 <option value="true">
+                           					Selected By User
+                       					 </option>
+                                  </select>
+
+                                        <div ng-show="selectedValue=='true'">
+                                            <button id="toggle" class="btn btn-primary" ng-click="updateDeselectAll()">
+      									Deselect All
+    							  </button>
+                                        </div>
+                                        <div ng-show="selectedValue=='false'">
+                                            <button id="toggle" class="btn btn-primary" ng-click="updateSelectAll()">
+      									Select All
+    							  </button>
+                                        </div>
+
+
+                                    </th>
+                                    <th>&nbsp;</th>
+
+                                </tr>
+
+
+                            </thead>
+                            <tbody ng-show="!isLoading && (perPage)">
+                                <tr ng-repeat="train in trainsList">
+                                    <td>
+                                        <a ui-sref="dashboard.trainTimeTable({trainNo:train.train_No})" class="btn btn-success btn-xs" title="View"><i class="fa fa-th-list fa-fw" aria-hidden="true"></i></a>
+
+                                    </td>
+                                    <td>{{(perPage)? ((currentPage * perPage + $index +1)-perPage ):''}}</td>
+                                    <td>{{train.train_No}}</td>
+                                    <td>{{train.train_name | limitTo : 20}}</td>
+                                    <td>{{train.start_day.length}}</td>
+                                    <td ng-repeat="day in train.start_day">{{Days[day] | limitTo : 3}}</td>
+                                    <td>{{train.train_type.name}}</td>
+                                    <td>{{train.from_station.name}} - {{train.from_station.code}}</td>
+                                    <td>{{train.to_station.name}} - {{train.to_station.code}}</td>
+                                    <td>No</td>
+                                    <td><input type="checkbox" ng-model="isUserSelected" ng-change="changeTrainFromUser(train);"
+                                        />
+                                    </td>
+
+                                    <td>
+
+
+
+                                        <button class="btn btn-danger btn-xs">
+                                                <i class="fa fa-trash fa-fw" aria-hidden="true"></i>
+                                        </button>
+
+                                        <button class="btn btn-warning btn-xs">
+                                                <i class="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
+                                        </button>
+
+
+
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody ng-show="isLoading">
+                                <tr style="height:20px">
+                                    <td colspan="11">
+                                        <div class="ui active large centered inline loader">Loading </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="9" class="text-center">
+
+                                        <nav>
+                                            <ul class="pagination" style="cursor:pointer">
+                                                <li><a ng-click="selectPage(1)">First</a>
+                                                </li>
+                                                <li><a ng-click="(currentPage!=currentPage - 1)?selectPage(currentPage - 1):null">&lt;</a>
+                                                </li>
+                                                <li>
+                                                    <a>
+                                                        <input type="text" ng-model="inputPage" ng-change="selectPage(inputPage)">                                                        of {{totalPages}}
+                                                    </a>
+                                                </li>
+                                                <li><a ng-click="(currentPage!=currentPage + 1)?selectPage(currentPage + 1):null">&gt;</a>
+                                                </li>
+                                                <li><a ng-click="(currentPage!=totalPages)?selectPage(totalPages):null">Last</a></li>
+                                            </ul>
+                                        </nav>
+
+
+                                    </td>
+                                </tr>
+                            </tfoot>
+
+
+
+                        </table>
+
+
+                        <button class="btn btn-primary btn-md" ng-csv="getCSVDataRows(trainsList)" csv-header="getCSVHeaders(trainsList)" filename="train.csv">Export List To CSV</button>
+                        <button class="btn btn-primary btn-md" ng-click="openPdf()">Open Pdf</button>
+                        <button class="btn btn-primary btn-md" ng-click="downloadPdf()">Download Pdf</button>
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

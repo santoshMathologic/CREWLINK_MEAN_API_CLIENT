@@ -1,0 +1,15 @@
+{
+  "name": "crewlink-mean-api-client",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "angular-ui-bootstrap": "^2.5.0",
+    "assert": "^1.4.1",
+    "async": "^2.0.1",
+    "bluebird": "^3.4.1",
+    "body-parser": "~1.13.2",
+    "consolidate": "^0.14.1",
+    "cookie-parser": "

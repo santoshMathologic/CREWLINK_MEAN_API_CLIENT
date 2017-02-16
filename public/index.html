@@ -1,0 +1,150 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <title>Crew Link(Decision Support System) A Mathologic Product</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/sb-admin-2.css">
+    <link rel="stylesheet" href="styles/timeline.css">
+    <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.min.css">
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="vendor/angularjs-toaster/toaster.css">
+    <link rel="stylesheet" href="vendor/angucomplete-alt/angucomplete-alt.css" />
+    <link rel="stylesheet" href="bower_components/custom-select/css/style.css" />
+    
+    <link rel="stylesheet" href="bower_components/animation/animate.css" />
+    
+
+
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/angular-underscore-module/angular-underscore-module.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="bower_components/Chart.js/Chart.min.js"></script>
+    <script src="vendor/angularjs-toaster/toaster.js"></script>
+    <script src="vendor/angucomplete-alt/angucomplete-alt.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script src="bower_components/ng-flow/dist/ng-flow.js"></script>
+    <script src="bower_components/custom-select/js/customSelect.js"></script>
+
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/modernizr/modernizr.min.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
+
+    
+    
+
+
+
+
+
+    <script src="scripts/app.js"></script>
+    <!--<script src="scripts/index.js"></script> !-->
+
+    <script src="scripts/factory/auth.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+
+<div class="container" ng-app="crewLinkApp" ng-controller="loginCtrl">
+
+    
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-4">
+            <div class="col-md-12">
+                <a ui-sref="home.register" style="text-decoration:none">
+                    <i class="fa fa-user fa-2x" aria-hidden="true"></i> NewUser
+                </a>
+                &nbsp; &nbsp;
+
+                <a href="#" style="text-decoration:none">
+                    <i class="fa fa-key fa-2x" aria-hidden="true"></i>Forget Password
+                </a>
+
+                &nbsp; &nbsp;
+
+                <a href="#" style="text-decoration:none">
+                    <i class="fa fa-question-circle fa-2x" aria-hidden="true"></i> Need help
+                </a>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Login</div>
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group has-feedback">
+
+                                <input type="text" style="border-radius:0px" class="form-control" ng-model="loginDetails.userName" placeholder="username">
+                                <i class="glyphicon glyphicon-user form-control-feedback"></i>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input type="password" style="border-radius:0px" class="form-control" ng-model="loginDetails.password" placeholder="Password">
+                                <i class="glyphicon glyphicon-lock form-control-feedback"></i>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                             </label>
+                            </div>
+                            <div class="form-group">
+                                <a ui-sref="dashboard.home" class="btn btn-primary btn-block" ng-click="login()"> <i class="fa fa-sign-in" aria-hidden="true"></i> Login In</a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+
+</div>
+
+
+  
+
+</body>
+
+</html>

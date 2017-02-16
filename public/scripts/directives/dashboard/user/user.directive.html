@@ -1,0 +1,185 @@
+<user> </user>
+<toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'position-class':'toast-bottom-right'}"></toaster-container>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Create User</div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-lg-12" id="userFormDiv">
+                            <form role="form" name="userForm" ng-class="submitClass" novalidate ng-submit="userForm.$valid && saveUser(userdetails)">
+                                <div class="col-lg-6">
+                                    <div class="form-group" ng-class="{ 'has-error' : userForm.username.$invalid && !userForm.username.$pristine }">
+                                        <label class="control-label">User Name </label>
+                                        <input type="text" name="username"
+                                            ng-required="true" class="form-control" placeholder="Enter User Name" ng-model="userdetails.username"
+                                            ng-minlength="3" ng-maxlength="8">
+
+                                            <p ng-show="userForm.username.$error.minlength" class="help-block">User is too short.</p>
+                                            <p ng-show="userForm.username.$error.maxlength" class="help-block">User is too long.</p>
+                                            <p ng-show="userForm.username.$invalid && !userForm.username.$pristine" class="help-block">User name is required.</p>
+
+                                    </div>
+
+                                    <div class="form-group" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+                                        <label class="control-label">Password</label>
+                                        <input type="password" name="password"
+                                            ng-required="true" class="form-control" placeholder="Enter Your Password" ng-model="userdetails.password">
+                                            <p ng-show="userForm.password.$invalid && !userForm.password.$pristine" class="help-block">Password is required.</p>
+
+
+                                    </div>
+
+                                    <div class="form-group" ng-class="{ 'has-error' : userForm.firstname.$invalid && !userForm.firstname.$pristine }">
+                                        <label class="control-label">First Name</label>
+                                        <input placeholder="Enter First Name"
+                                            ng-model="userdetails.firstName" ng-required="true" name="firstname" type="text"
+                                            class="form-control" ng-minlength="3" ng-maxlength="8">
+
+                                            <p ng-show="userForm.firstname.$error.minlength" class="help-block">FirstName is too short.</p>
+                                            <p ng-show="userForm.firstname.$error.maxlength" class="help-block">FirstName is too long.</p>
+                                            <p ng-show="userForm.firstname.$invalid && !userForm.firstname.$pristine" class="help-block">first name is required.</p>
+
+
+                                    </div>
+                                    <div class="form-group" ng-class="{ 'has-error' : userForm.lastName.$invalid && !userForm.lastName.$pristine }">
+                                        <label class="control-label" ng-required="true">Last Name</label>
+                                        <input placeholder="Enter Last Name"
+                                            type="text" ng-model="userdetails.lastName" name="lastName" ng-required="true" class="form-control">
+                                            <p ng-show="userForm.lastName.$invalid && !userForm.lastName.$pristine" class="help-block">Last name is required.</p>
+
+                                    </div>
+                                    <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                                        <label class="control-label">Email</label> <input type="email" name="email" ng-required="true"
+                                            placeholder="your@email.com" class="form-control" maxlength="30" ng-model="userdetails.email"
+                                            ng-model-options="{ updateOn: blur }" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/"
+                                        />
+                                        <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                                    </div>
+
+                                </div>
+                                <div class="col-lg-6">
+
+                                    <div class="form-group">
+                                        <label>Role </label>
+                                        <select class="form-control" ng-model="userdetails.role" ng-required="true"
+                                            name="role" ng-options="role.roleCode for role in roles">
+                                            <option value="" selected>--Select Role--</option>
+
+                                            </select> <span style="color: red" ng-show="(submitClass=='ng-submitted') || (submitClass!='hide-errors' && userForm.role.$dirty && userForm.role.$invalid)">
+
+						<span ng-show="userForm.role.$error.required">User Role is
+							required.</span>
+                                            </span>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <label class="control-label">Subscribe to make CrewLinks for (Base Station)</label>
+                                        <angucomplete-alt text-searching="Searching Text" id="ddlHeadStation" placeholder="Search Stations" input-name="headstation"
+                                            pause="400" selected-object="headStationSelected" remote-url-data-field="" title-field="code"
+                                            description-field="name" remote-api-handler="getHeadStation" minlength="2" input-class="form-control"
+                                            image-field="" match-class="highlight">
+
+                                            </angucomplete-alt>
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div ng-repeat="selectheadstation in selectedHeadStation">
+
+                                                        <div class="col-md-6">
+                                                            <div class="panel-body">
+                                                                {{selectheadstation.code}}
+                                                                <a class="btn btn-danger btn-xs glyphicon glyphicon-minus" ng-click="removeheadStation(selectheadstation);"></a>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                    </div>
+
+
+
+                                    <div class="form-group" ng-class="{ 'has-error' : userForm.userstatus.$invalid && !userForm.userstatus.$pristine }">
+                                        <label class="control-label">Account Status</label>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox" value="false" name="userstatus"
+							                    ng-model="userdetails.isActive">{{ userdetails.isActive ?
+							                        'User Is Active':'User Is Not Active' }}
+						                        </label>
+
+                                                <p ng-show="userForm.userstatus.$invalid && !userForm.userstatus.$pristine" class="help-block">User Status Not Selected</p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group" ng-class="{ 'has-error' : userForm.mobileNo.$invalid && !userForm.mobileNo.$pristine }">
+                                        <label class="control-label">Mobile No.</label>
+                                        <input type="text" name="mobileNo"
+                                            placeholder='Mobile Number' class="form-control" ng-model="userdetails.mobileNo"
+                                            ng-maxlength="10" ng-required="true">
+
+                                             <span class="help-block"
+										ng-show="userForm.mobileNo.$error.required || 
+                           userForm.mobileNo.$error.number">
+										Valid phone number is required </span> <span class="help-block"
+										ng-show="((userForm.mobileNo.$error.minlength ||
+                           userForm.mobileNo.$error.maxlength) && 
+                           userForm.mobileNo.$dirty) ">
+										phone number should be 10 digits </span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label">Address</label>
+                                        <textarea cols="12" rows="5" placeholder='Address'
+                                            class="form-control" name="address" ng-model="userdetails.address" ng-required="true">
+                                            <span style="color:red" ng-show="(submitClass=='ng-submitted') || (submitClass !='hide-errors' && userForm.address.$dirty && userForm.address.$invalid)">
+                                    <span ng-show="userForm.address.$error.required"> Address is Required </span>
+                                            </span>
+                                            </textarea>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-lg-12">
+                                    <button type="submit" class="btn btn-md btn-success" ng-click="submitClass='ng-submitted'"> <i class="fa fa-bookmark" aria-hidden="true"></i>
+					        Create User
+
+				            </button>
+
+                                    <button type="submit" class="btn btn-md btn-primary" ng-click="submitClass='ng-submitted'">
+					       <i class="fa fa-pencil-square" aria-hidden="true"></i> Update User
+
+				            </button>
+                                    <button type="button" class="btn btn-md btn-info" ng-click="reset();clearInput('ddlHeadStation');" value="Reset">
+                                <i class="fa fa-refresh" aria-hidden="true"></i> Reset
+                            </button>
+
+
+                                </div>
+                            </form>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="col-lg-12" id="userNextFormDiv">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

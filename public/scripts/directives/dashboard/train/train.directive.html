@@ -1,0 +1,124 @@
+<train></train>
+<toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'position-class':'toast-bottom-right'}"></toaster-container>
+
+
+<div class="container-fluid">
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Create Train</div>
+                <div class="panel-body">
+
+                    <div class="col-lg-12" id="trainFormDiv">
+                        <form role="form" name="trainForm" ng-class="submitClass" novalidate ng-submit="trainForm.$valid && saveTrain(traindetails,(traindetails._links.self)?'update':'create' )">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="control-label">Train No </label> <input type="number" name="trainno" ng-required="true"
+                                        ng-minlength="3" ng-maxlength="8" class="form-control" ng-model="traindetails.trainNo">
+                                    <span style="color: red" ng-show="(submitClass=='ng-submitted') || (submitClass!='hide-errors' && trainForm.trainno.$dirty && trainForm.trainno.$invalid)">
+                                <span ng-show="trainForm.trainno.$error.required">Train No
+							is required.</span> <span ng-show="trainForm.trainno.$error.number">Train
+							No Should Be A Integer.</span> <span ng-show="trainForm.trainno.$error.minlength">Train No
+							Should be of minimum 3 digits.</span> <span ng-show="trainForm.trainno.$error.maxlength">Train No can
+							not be more than 8 digits.</span>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Train Name</label> <input ng-model="traindetails.name" ng-required="true"
+                                        name="trainname" type="text" class="form-control"> <span style="color: red" ng-show="(submitClass=='ng-submitted') || (submitClass!='hide-errors' && trainForm.trainname.$dirty && trainForm.trainname.$invalid)">
+						<span ng-show="trainForm.trainname.$error.required">Train
+							Name is required.</span>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label>Start Day </label> <select ng-options="option for option in data.Days" ng-model="traindetails.startDay"
+                                        name="startday" ng-required="true" class="form-control"></select> <span style="color: red"
+                                        ng-show="(submitClass=='ng-submitted') || (submitClass!='hide-errors' && trainForm.startday.$dirty && trainForm.startday.$invalid)">
+						<span ng-show="trainForm.startday.$error.required">Start
+							Day is required.</span>
+                                    </span>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+
+                                    <label class="control-label">From 
+						</label>
+                                    <angucomplete-alt text-searching="Searching Text" id="ddlHeadStation" placeholder="Search From Stations" input-name="headstation"
+                                        pause="400" selected-object="toStationSelected" remote-url-data-field="" title-field="code"
+                                        description-field="name" remote-api-handler="getStation" minlength="2" input-class="form-control"
+                                        image-field="" match-class="highlight">
+                                    </angucomplete-alt>
+
+
+
+                                    <span style="color: red" ng-show="(submitClass=='ng-submitted') && (submitClass!='hide-errors' && traindetails._ref.fromStation == null)">
+						<span ng-show="traindetails._ref.fromStation == null">From
+							Station is required.</span>
+                                    </span>
+
+
+
+
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label class="control-label">To 
+					</label>
+                                    <angucomplete-alt text-searching="Searching Text" id="ddlHeadStation" placeholder="Search To Stations" input-name="headstation"
+                                        pause="400" selected-object="toStationSelected" remote-url-data-field="" title-field="code"
+                                        description-field="name" remote-api-handler="getStation" minlength="2" input-class="form-control"
+                                        image-field="" match-class="highlight">
+                                    </angucomplete-alt>
+
+
+                                    <span style="color: red" ng-show="(submitClass=='ng-submitted') && (submitClass!='hide-errors' && traindetails._ref.toStation == null)">
+						<span ng-show="traindetails._ref.toStation == null">To
+							Station is required.</span>
+                                    </span>
+
+
+
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Train Type </label> <select class="form-control" ng-model="traindetails.trainType"
+                                        name="traintype" ng-options="trainType.name as (trainType.name | uppercase) for trainType in typeLists | uppercase">
+
+					                </select>
+
+                                </div>
+
+                            </div>
+                            <div class="col-lg-12">
+
+
+
+  <button class="btn btn-primary btn-md">Cancel</button>
+  <div class="or"></div>
+  <button type="submit" class="btn btn-success btn-md" ng-click="submitClass='ng-submitted'">Save</button>
+<button class="btn btn-info btn-md" ng-click="reset();clearInput('ddlFromStation');">Reset</button>
+
+                            </div>
+
+
+                        </form>
+                    </div>
+
+
+
+
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
